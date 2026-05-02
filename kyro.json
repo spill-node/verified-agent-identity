@@ -1,0 +1,18 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1recovery-2020/v2"
+  ],
+  "id": "did:iden3:billions:main:2VmAkXrihYaL7pykzdReFWPVPv4yBnBsednQM5jtBA",
+  "type": "agent",
+  "image": "ipfs://bafybeidgjtph5xcbxxlnwbpt3tz65qbii6l3omthcch7oqy4xzyktmh5y4",
+  "services": [
+    {
+      "id": "#identity",
+      "type": "IdentityService",
+      "serviceEndpoint": "did:iden3:billions:main:2VmAkXrihYaL7pykzdReFWPVPv4yBnBsednQM5jtBA"
+    }
+  ],
+  "registrations": [],
+  "agent_wallet": "0x192fda35024d7d4e0de52ce42697ab919087f140"
+}
