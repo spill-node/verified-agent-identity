@@ -5,6 +5,14 @@ metadata: { "category": "identity", "type": "tool", "registrations": [], "clawdb
 homepage: https://billions.network/
 ---
 
+## Security Requirements
+
+**CRITICAL: Set the `BILLIONS_NETWORK_MASTER_KMS_KEY` environment variable before using this skill.** Without it, private keys are stored unencrypted. This skill uses AES-256-GCM encryption to protect sensitive data stored at `$HOME/.openclaw/billions/`, but encryption is only active when the master key is configured.
+
+```bash
+export BILLIONS_NETWORK_MASTER_KMS_KEY="your-32-char-minimum-secure-key"
+```
+
 ## When to use this Skill
 
 Lets AI agents create and manage their own identities on the Billions Network, and link those identities to a human owner.
