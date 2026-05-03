@@ -27,7 +27,6 @@ function buildEthereumAddressFromDid(did) {
  */
 function createDidDocument(did, publicKeyHex) {
   const ethereumAddress = buildEthereumAddressFromDid(did);
-
   return {
     "@context": [
       "https://www.w3.org/ns/did/v1",
@@ -35,27 +34,19 @@ function createDidDocument(did, publicKeyHex) {
     ],
     id: did,
     type: "Agent",
-    image: "ipfs://bafybeidgjtph5xcbxxlnwbpt3tz65qbii6l3omthcch7oqy4xzyktmh5y4",
-
-    // 🔥 FIX UTAMA
-    services: [
-      {
-        id: "#identity",
-        type: "IdentityService",
-        serviceEndpoint: did,
-      }
-    ],
-
+    image: null,
+    services: [],
     registrations: [],
     agent_wallet: ethereumAddress,
-
     verificationMethod: [
       {
         id: `${did}#ethereum-based-id`,
         controller: did,
         type: "EcdsaSecp256k1RecoveryMethod2020",
-        ethereumAddress,
-        publicKeyHex: secp256k1.Point.fromHex(publicKeyHex.slice(2)).toHex(true),
+        ethereumAddress: ethereumAddress,
+        publicKeyHex: secp256k1.Point.fromHex(publicKeyHex.slice(2)).toHex(
+          true,
+        ),
       },
     ],
     authentication: [`${did}#ethereum-based-id`],

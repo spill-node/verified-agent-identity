@@ -1,0 +1,13 @@
+{
+  "name": "kyro",
+  "description": "AI agent for kyro that provides intelligent automation and assistance.",
+  "type": "skill",
+  "image": "ipfs://bafybeidgjtph5xcbxxlnwbpt3tz65qbii6l3omthcch7oqy4xzyktmh5y4",
+  "services": [
+    {
+      "id": "#identity",
+      "type": "IdentityService",
+      "endpoint": "https://example.com"
+    }
+  ]
+}

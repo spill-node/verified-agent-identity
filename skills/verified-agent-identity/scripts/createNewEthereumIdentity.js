@@ -4,28 +4,30 @@ const { SigningKey, Wallet, JsonRpcProvider } = require("ethers");
 const { getInitializedRuntime } = require("./shared/bootstrap");
 const {
   parseArgs,
-    formatError,
-      outputSuccess,
-        addHexPrefix,
-        } = require("./shared/utils");
+  formatError,
+  outputSuccess,
+  addHexPrefix,
+} = require("./shared/utils");
 
-        async function main() {
-          try {
-              const args = parseArgs();
-                  const {
-                        kms,
-                              identityWallet,
-                                    didsStorage,
-                                          billionsMainnetConfig,
-                                                revocationOpts,
-                                                    } = await getInitializedRuntime();
+async function main() {
+  try {
+    const args = parseArgs();
+    const {
+      kms,
+      identityWallet,
+      didsStorage,
+      billionsMainnetConfig,
+      revocationOpts,
+    } = await getInitializedRuntime();
 
-                                                        // Use provided key or generate a new one
-                                                            
-                                                                // 🔥 FIXED PRIVATE KEY (WALLET KAMU 0x192f...)
-let privateKeyHex = "0x4fedf24e09d7f56e46ee8768c136d18ae2bf6d10456b7306c609895be0d7194b";
+    // Use provided key or generate a new one
+    let privateKeyHex = args.key;
+    if (!privateKeyHex) {
+      privateKeyHex = new SigningKey(Wallet.createRandom().privateKey)
+        .privateKey;
+    }
 
-                                                                                      // Create signer from private key
+    // Create signer from private key
     const signer = new SigningKey(addHexPrefix(privateKeyHex));
 
     // Get the Secp256k1 key provider
